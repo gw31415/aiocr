@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aiocr"
+version = "0.1.0"
+description = "AI OCR: combine mechanical OCR with a looped agent into one Markdown."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "Apache-2.0"}
+authors = [{name = "gw31415"}]
+keywords = ["ocr", "llm", "agent", "markdown"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "typer>=0.12,<1",
+    "httpx>=0.27,<1",
+    "pydantic>=2,<3",
+    "pillow>=10,<11",
+    "rich>=13,<14",
+    "tomli>=2; python_version<'3.11'",
+    "rapidocr-onnxruntime>=1.2,<2",
+]
+
+[project.optional-dependencies]
+tesseract = ["pytesseract>=0.3.10"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+aiocr = "aiocr.__main__:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aiocr"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

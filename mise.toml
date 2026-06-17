@@ -1,0 +1,5 @@
+[env]
+'_'.file.path = ".env"
+
+[tools]
+uv = "latest"

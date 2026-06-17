@@ -1,0 +1,17 @@
+# uv / Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Outputs
+*.md
+!README.md
+
+# OS files
+.DS_Store
+.env
